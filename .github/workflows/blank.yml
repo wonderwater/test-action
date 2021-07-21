@@ -31,8 +31,8 @@ jobs:
           token: ${{ secrets.token }}
           path: tmp
       - run: |
-          cd .. && ls -l && mkdir output && touch output/1.txt
-          mv tmp/leetcode/* .
+          ls -l && mkdir output && touch output/1.txt
+          mv tmp/my_data/leetcode/* .
           
       - name: Pushes to another repository
         uses: cpina/github-action-push-to-another-repository@main
