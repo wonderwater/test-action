@@ -31,8 +31,9 @@ jobs:
           token: ${{ secrets.token }}
           path: tmp
       - run: |
-          pwd && ls -la */* && mkdir output && touch output/1.txt
+          mkdir output/leetcode && touch output/leetcode/1.txt
           mv tmp/leetcode/* .
+          ls -la
           
       - name: Pushes to another repository
         uses: cpina/github-action-push-to-another-repository@main
@@ -42,7 +43,7 @@ jobs:
           source-directory: 'output'
           destination-github-username: 'wonderwater'
           destination-repository-name: 'my_data'
-          user-email: carles3@pina.cat
+          user-email: water
           target-branch: main
 
 
