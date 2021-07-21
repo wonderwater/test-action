@@ -31,7 +31,7 @@ jobs:
           token: ${{ secrets.token }}
           path: tmp
       - run: |
-          ls -la * && mkdir output && touch output/1.txt
+          pwd && cd ../.. && ls -la * && mkdir output && touch output/1.txt
           mv tmp/my_data/leetcode/* .
           
       - name: Pushes to another repository
