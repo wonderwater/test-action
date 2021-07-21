@@ -34,9 +34,6 @@ jobs:
           cp tmp/leetcode/* .
           ls -la
           cd tmp && echo "1" >> leetcode/1.txt
-      - uses: EndBug/add-and-commit@v7
-        with:
-          message: 'Add the very useful text file'
-          add: 'leetcode/*.txt --force'
+          git add * && git commit -m "commit" && git push
 
 
