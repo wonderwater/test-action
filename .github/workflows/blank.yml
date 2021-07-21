@@ -31,19 +31,12 @@ jobs:
           token: ${{ secrets.token }}
           path: tmp
       - run: |
-          mkdir -p output/leetcode && touch output/leetcode/1.txt
-          mv tmp/leetcode/* .
+          cp tmp/leetcode/* .
           ls -la
-          
-      - name: Pushes to another repository
-        uses: cpina/github-action-push-to-another-repository@main
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.token }}
+          cd tmp && echo "1" >> leetcode/1.txt
+      - uses: EndBug/add-and-commit@v7
         with:
-          source-directory: 'output'
-          destination-github-username: 'wonderwater'
-          destination-repository-name: 'my_data'
-          user-email: water
-          target-branch: main
+          message: 'Add the very useful text file'
+          add: 'leetcode/*.txt --force'
 
 
